@@ -36,18 +36,13 @@ public class MainApplication {
         };
     }
 
-    public static String petList(int numberOfPets, String[] petType, String[] petNameType) {
-        StringBuilder results = new StringBuilder();
-        for (int i = 0; i< numberOfPets; i++) results.append(String.format("%s %s \n", petType[i], petNameType[i]));
-        return results.toString();
-    }
     public static String petSpeaks(Pet[] pets) {
         StringBuilder results = new StringBuilder();
         for (Pet pet : pets)
             results.append(String.format("%s the %s says %s \n", pet.getName(), typeOfPetInString(pet), pet.speak()));
         return results.substring(0, results.length() -1);
     }
-    private static String typeOfPetInString(Pet pet) {
+    public static String typeOfPetInString(Pet pet) {
         if (pet instanceof Cat) return "cat";
         else if (pet instanceof Dog) return "dog";
         else if (pet instanceof Bird) return "bird";
